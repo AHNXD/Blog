@@ -8,8 +8,8 @@
     <body>
         <div class="wrapper">
             <div class="title-text">
-                <div class="title login">Login Form</div>
-                <div class="title signup">Signup Form</div>
+                <div class="title login">Login</div>
+                <div class="title signup">Signup</div>
             </div>
             <div class="form-container">
                 <div class="slide-controls">
