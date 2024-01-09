@@ -4,8 +4,10 @@
     <title>test</title>
 </head>
 <body>
+    <h1>Hello</h1>
     <?php
-        include ("connection.php");
+        $user_name = $_GET("user");
+        echo $user_name;
     ?>
 </body>
 </html>

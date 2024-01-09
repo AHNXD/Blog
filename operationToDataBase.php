@@ -1,6 +1,12 @@
 <?php
+<<<<<<< HEAD
 addUser();
 // Function to sanitize user input
+=======
+$user;
+$email;
+$password;
+>>>>>>> 4d6b40f4ac8fbeba333e16d469cc9b760ec004e5
 function sanitize($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -27,6 +33,7 @@ function addUser()
             $msg = "Error Registering: " . mysqli_error($connection);
         }
         mysqli_stmt_close($stmt);
+        $connection->close();
     }
 }
 function login($connection) {
