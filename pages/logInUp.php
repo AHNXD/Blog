@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" href="../styles/logInUp.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignIn/Up</title>
     </head>
     <body>
         <div class="wrapper">
