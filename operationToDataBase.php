@@ -1,6 +1,7 @@
 <?php
-addUser();
-
+$user;
+$email;
+$password;
 function sanitize($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -32,6 +33,7 @@ function addUser()
         }
         // Close the statement
         mysqli_stmt_close($stmt);
+        $connection->close();
     }
 }
 ?>

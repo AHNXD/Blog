@@ -5,11 +5,12 @@ $password = "";
 $database = "blog";
 
 try{
+    $msg;
     $connection = new mysqli($servername, $username, $password, $database);
     if (!$connection) die("". mysqli_connect_error());
-    echo "Connected successfully";
+        $msg = "Connected successfully";
 }catch(Exception $e){
-    echo "". $e->getMessage();
+        $msg = "". $e->getMessage();
 }
 
 ?>

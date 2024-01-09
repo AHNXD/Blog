@@ -35,7 +35,7 @@
                             Not a member? <a href="">Signup now</a>
                         </div>
                     </form>
-                    <form action="operationToDataBase.php" method="post" class="signup">
+                    <form action="authSignUp.php" class="signup">
                         <div class="field">
                             <input id="user" name="user" type="text" placeholder="User Name" required>
                         </div>
