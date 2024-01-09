@@ -6,7 +6,7 @@
 <body>
     <h1>Hello</h1>
     <?php
-        $user_name = $_GET("user");
+        $user_name = $_GET["user"];
         echo $user_name;
     ?>
 </body>

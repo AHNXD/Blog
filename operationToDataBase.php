@@ -1,6 +1,6 @@
 <?php
-
-if($_POST['state'] == "login") login();
+$state = $_GET['state'];
+if( $state == "login") login();
 else addUser();
 
 function sanitize($data) {
@@ -12,10 +12,10 @@ function sanitize($data) {
 function addUser()
 {
     include("connection.php");
-    if(isset($_POST['user']) && isset($_POST['email']) && isset($_POST['password'])){
-        $user = sanitize($_POST['user']);
-        $email = sanitize($_POST['email']);
-        $password = sanitize($_POST['password']);
+    if(isset($_GET['user']) && isset($_GET['email']) && isset($_GET['password'])){
+        $user = sanitize($_GET['user']);
+        $email = sanitize($_GET['email']);
+        $password = sanitize($_GET['password']);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $query = "INSERT INTO `users` (`user_name`,`email`,`password`) VALUES (?, ?, ?)";
@@ -35,18 +35,19 @@ function addUser()
 function login() {
     include("connection.php");
 
-    $email = sanitize($_POST['email']);
-    $password = sanitize($_POST['password']);
+    $email = sanitize($_GET['email']);
+    $password = sanitize($_GET['password']);
 
-    $sql = "SELECT password FROM users WHERE email = '$email'";
+    $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = $connection->query($sql);
 
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $storedPassword = $row['password'];
+        $storedUsername = $row['user_name'];
 
         if (password_verify($password, $storedPassword)) {
-            header("Location: home.php?user=".$user);
+            header("Location: home.php?user=".$storedUsername);
         } else {
             echo "Invalid email or password.";
         }
