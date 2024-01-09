@@ -20,22 +20,24 @@
                     <div class="slider-tab"></div>
                 </div>
                 <div class="form-inner">
-                    <form action="#" class="login">
+                    <form action="operationToDataBase.php" class="login">
+                        <input id="state" name="state" value="login" hidden>
                         <div class="field">
-                            <input type="text" placeholder="Email Address" required>
+                            <input id="email" name="email" type="email" placeholder="Email Address" required>
                         </div>
                         <div class="field">
-                            <input type="password" placeholder="Password" required>
+                            <input id="password" name="password" type="password" placeholder="Password" required>
                         </div>
                         <div class="field btn">
                             <div id = "loginbtn" class="btn-layer"></div>
-                            <input onclick="submitForm()" type="submit" value="Login">
+                            <input type="submit" value="Login">
                         </div>
                         <div class="signup-link">
                             Not a member? <a href="">Signup now</a>
                         </div>
                     </form>
-                    <form action="authSignUp.php" class="signup">
+                    <form action="operationToDataBase.php" class="signup">
+                        <input id="state" name="state" value="signup" hidden>
                         <div class="field">
                             <input id="user" name="user" type="text" placeholder="User Name" required>
                         </div>

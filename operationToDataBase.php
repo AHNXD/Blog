@@ -1,12 +1,8 @@
 <?php
-<<<<<<< HEAD
-addUser();
-// Function to sanitize user input
-=======
-$user;
-$email;
-$password;
->>>>>>> 4d6b40f4ac8fbeba333e16d469cc9b760ec004e5
+
+if($_POST['state'] == "login") login();
+else addUser();
+
 function sanitize($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -27,7 +23,7 @@ function addUser()
         mysqli_stmt_bind_param($stmt, "sss", $user, $email, $hashedPassword);
         $result = mysqli_stmt_execute($stmt);
         if($result){
-            $msg = "Registered Successfully";
+            header("Location: home.php?user=".$user);
         }
         else{
             $msg = "Error Registering: " . mysqli_error($connection);
@@ -36,7 +32,9 @@ function addUser()
         $connection->close();
     }
 }
-function login($connection) {
+function login() {
+    include("connection.php");
+
     $email = sanitize($_POST['email']);
     $password = sanitize($_POST['password']);
 
@@ -48,16 +46,15 @@ function login($connection) {
         $storedPassword = $row['password'];
 
         if (password_verify($password, $storedPassword)) {
-            echo "Login successful!";
+            header("Location: home.php?user=".$user);
         } else {
             echo "Invalid email or password.";
         }
     } else {
         echo "Invalid email or password.";
     }
+
+    $connection->close();
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    login($connection);
-}
-$connection->close();
+
 ?>
