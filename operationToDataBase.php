@@ -54,8 +54,6 @@ function login() {
     } else {
         echo "Invalid email or password.";
     }
-
     $connection->close();
 }
-
 ?>
