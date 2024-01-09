@@ -35,18 +35,18 @@
                             Not a member? <a href="">Signup now</a>
                         </div>
                     </form>
-                    <form action="#" class="signup">
+                    <form action="operationToDataBase.php" method="post" class="signup">
                         <div class="field">
-                            <input type="text" placeholder="User Name" required>
+                            <input id="user" name="user" type="text" placeholder="User Name" required>
                         </div>
                         <div class="field">
-                            <input type="email" placeholder="Email Address" required>
+                            <input id="email" name="email" type="email" placeholder="Email Address" required>
                         </div>
                         <div class="field">
-                            <input type="password" placeholder="Password" required>
+                            <input id="password" name="password" type="password" placeholder="Password" required>
                         </div>
                         <div class="field">
-                            <input type="password" placeholder="Confirm password" required>
+                            <input id="Rpassword" name="Rpassword" type="password" placeholder="Confirm password" required>
                         </div>
                         <div class="field btn">
                             <div class="btn-layer">
