@@ -28,8 +28,8 @@
                             <input type="password" placeholder="Password" required>
                         </div>
                         <div class="field btn">
-                            <div class="btn-layer"></div>
-                            <input type="submit" value="Login">
+                            <div id = "loginbtn" class="btn-layer"></div>
+                            <input onclick="submitForm()" type="submit" value="Login">
                         </div>
                         <div class="signup-link">
                             Not a member? <a href="">Signup now</a>
