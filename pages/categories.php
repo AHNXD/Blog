@@ -20,8 +20,8 @@
 
             // Display category image with text
             echo '<div>';
-            echo '<img src="' . $imageURL . '" alt="' . $name . '">';
-            echo '<p>' . $name . '</p>';
+            echo "<img src=\"../photos/$imageURL\" alt=\"$title\">";
+            echo '<p>' . $title . '</p>';
             echo '</div>';
         }
     }
