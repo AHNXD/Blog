@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Categories</title>
+    <title>Home</title>
 </head>
 <body>
-
 </body>
 </html>
