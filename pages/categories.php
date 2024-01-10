@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/categories.css">
+    <title>Categories</title>
 </head>
 <body>
 <?php
@@ -14,15 +15,14 @@
 
     if ($data->num_rows > 0) {
         $rows = $data->fetch_all(MYSQLI_ASSOC);
-        for($i =0 ; $i<count($rows); $i++){
+        for($i = 0 ; $i < count($rows) ; $i++){
             $title = $rows[$i]['category_name'];
             $imageURL = $rows[$i]['photo'];
 
-            // Display category image with text
-            echo '<div>';
+            echo "<div>";
             echo "<img src=\"../photos/$imageURL\" alt=\"$title\">";
-            echo '<p>' . $title . '</p>';
-            echo '</div>';
+            echo "<p> $title </p>";
+            echo "</div>";
         }
     }
 ?>
