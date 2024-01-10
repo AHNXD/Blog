@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>test</title>
+    <title>Home</title>
 </head>
 <body>
     <h1>Hello</h1>
