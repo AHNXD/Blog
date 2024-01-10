@@ -48,6 +48,7 @@
                         <div class="field">
                             <input id="Rpassword" name="Rpassword" type="password" placeholder="Confirm password" required>
                         </div>
+                        <input id="isAdmin" name="isAdmin" type="checkbox" value="1"> Admin
                         <div class="field btn">
                             <div class="btn-layer">
                         </div>

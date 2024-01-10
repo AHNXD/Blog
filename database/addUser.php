@@ -1,17 +1,21 @@
 <?php
     include("connection.php");
-    if(isset($_GET['user']) && isset($_GET['email']) && isset($_GET['password'])){
+    if(isset($_GET['user']) && isset($_GET['email']) && isset($_GET['password']) && isset($_GET['isAdmin'])){
         $user = sanitize($_GET['user']);
         $email = sanitize($_GET['email']);
         $password = sanitize($_GET['password']);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $query = "INSERT INTO `users` (`user_name`,`email`,`password`) VALUES (?, ?, ?)";
+        $state = 0;
+        if(isset($_GET['isAdmin'])) $state = 1;
+        
+        $query = "INSERT INTO `users` (`user_name`,`email`,`password`,`is_admin`) VALUES (?, ?, ?, ?)";
         $stmt = mysqli_prepare($connection, $query);
-        mysqli_stmt_bind_param($stmt, "sss", $user, $email, $hashedPassword);
+        mysqli_stmt_bind_param($stmt, "sssi", $user, $email, $hashedPassword, $state);
+
         $result = mysqli_stmt_execute($stmt);
         if($result){
-            header("Location: ../pages/home.php?user=".$user);
+            if($state == 1) header("Location: ../pages/admin.php?user=$user");
+                else header("Location: ../pages/home.php?user=$user");
         }
         else{
             $msg = "Error Registering: " . mysqli_error($connection);

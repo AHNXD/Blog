@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello admin : <?php $_GET['user']?></h1>
+    <h1>Hello admin :</h1>
+    <?php 
+        echo $_GET['user'];
+    ?>
 </body>
 </html>

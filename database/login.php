@@ -10,10 +10,13 @@
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
             $storedPassword = $row['password'];
+            $storedEmail = $row['email'];
+            $storedName = $row['user_name'];
+            $storedStatus = $row['is_admin'];
 
             if (password_verify($password, $storedPassword)) {
-                if($row['is_admin'] == true) header("Location: ../pages/admin.php?user=".$row['user_name']);
-                else header("Location: ../pages/home.php?user=".$row['user_name']);
+                if($storedStatus == 1) header("Location: ../pages/admin.php?user=$storedName");
+                else header("Location: ../pages/home.php?user=$storedName");
             } else {
                 echo "Invalid email or password.";
             }
