@@ -2,7 +2,7 @@
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles/logInUp.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -20,8 +20,7 @@
                     <div class="slider-tab"></div>
                 </div>
                 <div class="form-inner">
-                    <form action="operationToDataBase.php" class="login">
-                        <input id="state" name="state" value="login" hidden>
+                    <form action="../database/login.php" class="login">
                         <div class="field">
                             <input id="email" name="email" type="email" placeholder="Email Address" required>
                         </div>
@@ -36,8 +35,7 @@
                             Not a member? <a href="">Signup now</a>
                         </div>
                     </form>
-                    <form action="operationToDataBase.php" class="signup">
-                        <input id="state" name="state" value="signup" hidden>
+                    <form action="../database/addUser.php" class="signup">
                         <div class="field">
                             <input id="user" name="user" type="text" placeholder="User Name" required>
                         </div>
