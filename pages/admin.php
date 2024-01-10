@@ -12,16 +12,22 @@
             <div class="form-inner">
                 <div class="title-admin"><h1><?php echo $_GET['user'] ?></h1></div>
                 <div class="btns">
-                    <button class="button-64" role="button" onclick=""><span class="text">Categories</span></button>
+                    <button class="button-64" role="button" onclick="goToCategories()"><span class="text">Categories</span></button>
                     <button class="button-64" role="button" onclick="goToAddArticle()"><span class="text">Add Article</span></button>
                 </div>
-                <button class="button-85" role="button">LogOut</button>
+                <button class="button-85" role="button" onclick="signOut()">LogOut</button>
             </div>
         </div>
     </div>
     <script>
         function goToAddArticle() {
             window.location = "addArticle.php";
+        }
+        function goToCategories() {
+            window.location = "categories.php";
+        }
+        function signOut() {
+            window.location = "logInUp.php";
         }
     </script>
 </body>
