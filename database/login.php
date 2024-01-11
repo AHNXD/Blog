@@ -16,7 +16,7 @@
 
             if (password_verify($password, $storedPassword)) {
                 if($storedStatus == 1) header("Location: ../pages/admin.php?user=$storedName");
-                else header("Location: ../pages/home.php?user=$storedName");
+                else header("Location: ../pages/categories.php?user=$storedName");
             } else {
                 echo "Invalid email or password.";
             }

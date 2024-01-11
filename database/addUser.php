@@ -1,6 +1,6 @@
 <?php
     include("connection.php");
-    if(isset($_GET['user']) && isset($_GET['email']) && isset($_GET['password']) && isset($_GET['isAdmin'])){
+    if(isset($_GET['user']) && isset($_GET['email']) && isset($_GET['password'])){
         $user = sanitize($_GET['user']);
         $email = sanitize($_GET['email']);
         $password = sanitize($_GET['password']);
@@ -15,10 +15,10 @@
         $result = mysqli_stmt_execute($stmt);
         if($result){
             if($state == 1) header("Location: ../pages/admin.php?user=$user");
-                else header("Location: ../pages/home.php?user=$user");
+            else header("Location: ../pages/categories.php?user=$user");
         }
         else{
-            $msg = "Error Registering: " . mysqli_error($connection);
+            echo "Error Registering: " . mysqli_error($connection);
         }
         mysqli_stmt_close($stmt);
         $connection->close();

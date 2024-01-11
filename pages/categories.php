@@ -10,8 +10,10 @@
     <div class="wrapper">
         <div class="form-container">
             <div class="form-inner">
-                <div class="title-Categories"><h1>Categories</h1></div>
+                <div class="title-Categories"><h1 style="color: #fb6aae;"><?php echo $_GET['user'] ?></h1></div>
+                <div class="title-Categories"><h2>Categories</h2></div>
                 <div class="btns">
+                <button id="btnCat" class="button-64" role="button" onclick="goToHome(0)"><span class='text'>All</span></button>
                     <?php
                         include("../database/connection.php");  
                         $sql = "SELECT * FROM categories";
@@ -21,25 +23,22 @@
                             $rows = $data->fetch_all(MYSQLI_ASSOC);
                             for($i = 0 ; $i < count($rows) ; $i++){
                                 $title = $rows[$i]['category_name'];
-                                $imageURL = $rows[$i]['photo'];
+                                $id = $rows[$i]['ID'];
 
-                                echo "<button id='btnCat' class='button-64' role='button' onClick='goToHome(\"$title\")'><span class='text'>$title</span></button>"; 
+                                echo "<button id='btnCat' class='button-64' role='button' onClick='goToHome(\"$id\")'><span class='text'>$title</span></button>"; 
                             }
                         }
                         $connection->close();
                     ?>
                 </div>
-                <button class="button-85" role="button" onclick="signOut()">LogOut</button>
+                <button class="button-85" role="button" onclick="history.back()">Go Back</button>
             </div>
         </div>
     </div>
     <script>
-        function goToHome(title){
-            window.location = "home.php?title=" + title;
+        function goToHome(id){
+            window.location = "articles.php?ID=" + id;
         }  
-        function signOut() {
-            window.location = "logInUp.php";
-        }
     </script>
 </body>
 </html>
