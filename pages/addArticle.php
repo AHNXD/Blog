@@ -34,7 +34,6 @@
                                     }
                                     $connection->close();
                                 ?>
-                                
                             </datalist>
                         </div>
                         <div class="field">
