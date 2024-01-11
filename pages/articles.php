@@ -42,7 +42,7 @@
                     echo "<h1> $title </h1>";
                     echo "<h4> $explanation </h4>";
                     echo "<hr />";
-                    echo "<div class='btns'><button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button></div>";                    
+                    echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> </div>";                    
                     if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle(\"$id\")'>Delete</button>";
                     echo "</div>";
                     echo " </div> </div> </div>";
@@ -50,7 +50,7 @@
             }
             $connection->close();
         ?>
-    <script>
+    <script>     
         function signOut() {
             window.location = "logInUp.php";
         }

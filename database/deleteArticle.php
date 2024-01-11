@@ -41,7 +41,6 @@
     </div>
     <script>
         function goBackAndPop() {
-            history.replaceState(null,null, "../pages/addArticle.php");
             history.back();
         }
     </script>

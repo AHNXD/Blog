@@ -25,10 +25,6 @@ hr
     border: none;
     background-color: #a445b2;
 }
-.btns{
-    display: flex;
-    justify-content: space-around;
-}
 ::selection{
     background: pink;
     color: #fff;
