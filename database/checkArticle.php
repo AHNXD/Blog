@@ -35,7 +35,7 @@
                                 }
                                 mysqli_stmt_close($stmt);
                                 $connection->close();
-                            }else{ echo "Some Thing Went Wrong!"; }
+                            }else{ echo "Something Went Wrong!"; }
                         ?>
                     </h1>
                 </div>

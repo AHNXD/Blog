@@ -15,8 +15,8 @@
             $storedStatus = $row['is_admin'];
 
             if (password_verify($password, $storedPassword)) {
-                if($storedStatus == 1) header("Location: ../pages/admin.php?user=$storedName");
-                else header("Location: ../pages/categories.php?user=$storedName");
+                if($storedStatus == 1) header("Location: ../pages/admin.php?user=$storedName&isAdmin=1");
+                else header("Location: ../pages/categories.php?user=$storedName&isAdmin=0");
             } else {
                 echo "Invalid email or password.";
             }

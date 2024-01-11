@@ -14,8 +14,8 @@
 
         $result = mysqli_stmt_execute($stmt);
         if($result){
-            if($state == 1) header("Location: ../pages/admin.php?user=$user");
-            else header("Location: ../pages/categories.php?user=$user");
+            if($state == 1) header("Location: ../pages/admin.php?user=$user&isAdmin=1");
+            else header("Location: ../pages/categories.php?user=$user&isAdmin=0");
         }
         else{
             echo "Error Registering: " . mysqli_error($connection);
