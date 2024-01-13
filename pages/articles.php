@@ -44,8 +44,7 @@
                     echo "<hr />";
                     echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> </div>";                    
                     if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle(\"$id\")'>Delete</button>";
-                    echo "</div>";
-                    echo " </div> </div> </div>";
+                    echo " </div> </div> </div> </div>";
                 }
             }
             $connection->close();
