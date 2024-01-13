@@ -16,9 +16,6 @@
         function goToContent(id){
             window.location = "articleContent.php?ID=" + id;
         }
-        function deleteArticle(id) {
-            window.location.href = "../database/deleteArticle.php?ID=" + id;
-        }
         function addLike(id){
             var likesCount = document.getElementById("likes"+id);
             $.ajax({
@@ -28,6 +25,25 @@
                 dataType: "json",
                 success: function(data) {
                     if (data.status == "success") likesCount.innerHTML = data.likes; // update the number of likes
+                    else alert(data.message);
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred");
+                }
+            });
+        }
+        function deleteArticle(id){
+            $.ajax({
+                type: "POST",
+                url: "../database/deleteArticle.php",
+                data: {ID: id},
+                dataType: "json",
+                success: function(data) {
+                    if (data.status == "success") 
+                    {
+                        alert("Article added successfully");
+                        location.reload();
+                    } // update the number of likes
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {
@@ -80,7 +96,7 @@
                     echo "<h4> $explanation </h4>";
                     echo "<hr />";
                     echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> <button class='button-64' role='button' onclick='addLike($id)'><img src='../photos/like1.svg' alt='Like'> <p id='likes$id'>$likesCount</p></button></div>";           
-                    if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle(\"$id\")'>Delete</button>";
+                    if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle($id)'>Delete</button>";
                     echo " </div> </div> </div> </div>";
                 }
             }

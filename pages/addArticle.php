@@ -7,11 +7,47 @@
     <title>Add Article</title>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script defer>
+        function addArticle(id){
+            var title = document.getElementById("title").value;
+            var category = document.getElementById("catID").value;
+            var description = document.getElementById("description").value;
+            var authorName = document.getElementById("authorName").value;
+            var article = document.getElementById("article").value;
+            var photo = document.getElementById("photo").value;
+
+            $.ajax({
+                type: "POST",
+                url: "../database/checkArticle.php",
+                data: {
+                    title: title,
+                    category: category,
+                    description: description,
+                    authorName: authorName,
+                    article: article,
+                    photo: photo
+                },
+                dataType: "json",
+                success: function(data) {
+                    if (data.status == "success") 
+                    {
+                        alert("Article added successfully");
+                        location.reload();
+                    } // update the number of likes
+                    else alert(data.message);
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred");
+                }
+            });
+        }
+    </script>
     <div class="wrapper">
         <div class="form-container">
             <div class="form-inner">
                 <div class="title-admin"><h1>Add Article</h1></div>
-                <form action="../database/checkArticle.php" class="addArticle">
+                <form class="addArticle">
                         <div class="field">
                             <input id="title" name="title" type="text" placeholder="Article Title" required>
                         </div>
@@ -49,7 +85,7 @@
                             <input id="photo" name="photo" type="text" placeholder="Photo Name" required>
                         </div>
                         <div class="field_btn">
-                            <button id="btnCat" class="button-64" role="button" type="submit"><span class='text'>ADD</span></button>
+                            <button id="btnCat" class="button-64" role="button" onclick="addArticle()"><span class='text'>ADD</span></button>
                         </div>
                         <button class="button-85" role="button" onclick="history.back()">Go Back</button>
                 </form>
