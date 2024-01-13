@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/articles.css">
     <title>Articles</title>
+    <?php session_start(); ?>
 </head>
 <body>
     <div class="wrapper">
         <div class="form-container">
             <div class="form-inner">
-                <div class="title-admin"><h1 style="color: #a445b2"><?php echo $_GET['user'] ?></h1></div>
-                <h3><?php echo $_GET['catName']; ?></h3>
+                <div class="title-user">
+                    <h1 style="color: #a445b2"><?php echo $_SESSION['user_name']; ?></h1>
+                </div>
                 <button class='button-85' role='button' onclick='signOut()'>LogOut</button>
                 <button class='button-85' role='button' onclick='history.back()'>Go Back</button>
+                <h1><?php echo $_GET['catName']; ?></h1>
             </div>
         </div>
     </div>
         <?php
             include("../database/connection.php");
-            $id = $_GET['ID'];
-            $isAdmin = $_GET['isAdmin'];
+            $id = $_GET['article_ID'];
+            $isAdmin = $_SESSION['user_isAdmin'];
             $sql = "SELECT * FROM article";
             if ($id != 0)
             {
