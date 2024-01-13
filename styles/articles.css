@@ -5,11 +5,14 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-img{
+.title_pic{
     width: 300px;
     height: 200px;
     border: 5px solid #a445b2;
     border-radius: 15px;
+}
+img {
+    width: 50px; height:50px;
 }
 html,body{
     display: grid;
@@ -17,6 +20,9 @@ html,body{
     width: 100%;
     place-items: center;
     background: -webkit-linear-gradient(left, #a445b2, pink);
+}
+p{
+    padding: 16px;
 }
 hr
 {

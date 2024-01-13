@@ -17,6 +17,7 @@
             $storedStatus = $row['is_admin'];
 
             if (password_verify($password, $storedPassword)) {
+                $_SESSION['user_ID'] = $storedID;
                 $_SESSION['user_name'] = $storedName;
                 $_SESSION['user_email'] = $storedEmail;
                 $_SESSION['user_isAdmin'] = $storedStatus;

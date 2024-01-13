@@ -14,7 +14,16 @@
         mysqli_stmt_bind_param($stmt, "sssi", $user, $email, $hashedPassword, $state);
 
         $result = mysqli_stmt_execute($stmt);
+        $id;
         if($result){
+            $sql = "SELECT * FROM users WHERE email = '$email'";
+            $result = $connection->query($sql);
+
+            if ($result->num_rows == 1) {
+                $row = $result->fetch_assoc();
+                $id = $row['ID'];
+            }
+            $_SESSION['user_ID'] = $id;
             $_SESSION['user_name'] = $user;
             $_SESSION['user_email'] = $email;
             $_SESSION['user_isAdmin'] =  $state;

@@ -8,6 +8,34 @@
     <?php session_start(); ?>
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script defer>
+        function signOut() {
+            window.location = "logInUp.php";
+        }
+        function goToContent(id){
+            window.location = "articleContent.php?ID=" + id;
+        }
+        function deleteArticle(id) {
+            window.location.href = "../database/deleteArticle.php?ID=" + id;
+        }
+        function addLike(id){
+            var likesCount = document.getElementById("likes"+id);
+            $.ajax({
+                type: "POST",
+                url: "../database/like.php",
+                data: {article_ID: id},
+                dataType: "json",
+                success: function(data) {
+                    if (data.status == "success") likesCount.innerHTML = data.likes; // update the number of likes
+                    else alert(data.message);
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred");
+                }
+            });
+        }
+    </script>
     <div class="wrapper">
         <div class="form-container">
             <div class="form-inner">
@@ -39,13 +67,19 @@
                     $imageURL = $rows[$i]['photo'];
                     $explanation =$rows[$i]['description'];
 
+                    $sql = "SELECT COUNT(*) AS 'likes' FROM likes WHERE article_ID = $id";
+                    $likesData = mysqli_query($connection, $sql);
+                    $likes;
+                    if ($data->num_rows > 0) $likes = $likesData->fetch_all(MYSQLI_ASSOC);
+                    $likesCount = $likes[0]['likes'];
+
                     echo " <div class='wrapper'><div class='form-container'><div class='form-inner'>";
                     echo "<div class='article' >";
-                    echo "<img src=\"../photos/$imageURL\" alt=\"$title\">";
+                    echo "<img class='title_pic' src=\"../photos/$imageURL\" alt=\"$title\">";
                     echo "<h1> $title </h1>";
                     echo "<h4> $explanation </h4>";
                     echo "<hr />";
-                    echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> </div>";                    
+                    echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> <button class='button-64' role='button' onclick='addLike($id)'><img src='../photos/like1.svg' alt='Like'> <p id='likes$id'>$likesCount</p></button></div>";           
                     if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle(\"$id\")'>Delete</button>";
                     echo "</div>";
                     echo " </div> </div> </div>";
@@ -53,16 +87,5 @@
             }
             $connection->close();
         ?>
-    <script>     
-        function signOut() {
-            window.location = "logInUp.php";
-        }
-        function goToContent(id){
-            window.location = "articleContent.php?ID=" + id;
-        }
-        function deleteArticle(id) {
-            window.location.href = "../database/deleteArticle.php?ID=" + id;
-        }
-    </script>
 </body>
 </html>
