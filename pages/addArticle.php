@@ -32,9 +32,9 @@
                 success: function(data) {
                     if (data.status == "success") 
                     {
-                        alert("Article added successfully");
+                        //alert("Article added successfully");
                         location.reload();
-                    } // update the number of likes
+                    }
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {

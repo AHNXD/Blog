@@ -24,7 +24,7 @@
                 data: {article_ID: id},
                 dataType: "json",
                 success: function(data) {
-                    if (data.status == "success") likesCount.innerHTML = data.likes; // update the number of likes
+                    if (data.status == "success") likesCount.innerHTML = data.likes;
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {
@@ -43,7 +43,7 @@
                     {
                         alert("Article added successfully");
                         location.reload();
-                    } // update the number of likes
+                    }
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {
