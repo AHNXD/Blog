@@ -81,8 +81,7 @@
                     echo "<hr />";
                     echo "<div class=\"btns\" style='display:flex;justify-content:center;margin:16px;'> <button class='button-64' role='button' onclick='goToContent(\"$id\")''><span class='text'>See More</span></button> <button class='button-64' role='button' onclick='addLike($id)'><img src='../photos/like1.svg' alt='Like'> <p id='likes$id'>$likesCount</p></button></div>";           
                     if($isAdmin) echo "<button class='button-85' role='button' onclick='deleteArticle(\"$id\")'>Delete</button>";
-                    echo "</div>";
-                    echo " </div> </div> </div>";
+                    echo " </div> </div> </div> </div>";
                 }
             }
             $connection->close();
