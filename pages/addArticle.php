@@ -21,7 +21,6 @@
                 type: "POST",
                 url: "../database/checkArticle.php",
                 data: {
-                    //parameters
                     title: title,
                     category: category,
                     description: description,
