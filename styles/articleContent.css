@@ -65,6 +65,10 @@ hr
     width: 25px;
     height: inherit;
 }
+.divEmp{
+    width: 25px;
+    height: 25px;
+}
 .user_name{
     color: #a445b2;
 }

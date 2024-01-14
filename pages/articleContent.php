@@ -93,6 +93,7 @@
             echo "<h4 class ='comment'> $comment </h4>";
             if($_SESSION['user_isAdmin'] == 1) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
             else if($_SESSION["user_ID"] == $userID) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
+            else echo "<div class='divEmp'></div>";
             echo "</div>";
             echo "<hr>";
         }
