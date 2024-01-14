@@ -13,11 +13,7 @@ if ($count == 0) {
     $sql = "INSERT INTO likes (user_ID, article_ID) VALUES ($userID, $articleid)";
     $result = mysqli_query($connection, $sql);
     if ($result) {
-        $sql = "SELECT COUNT(*) AS 'likes' FROM likes WHERE article_ID = $articleid";
-        $result = mysqli_query($connection, $sql);
-        $row = mysqli_fetch_assoc($result);
-        $likes = $row['likes'];
-        echo json_encode(array("status" => "success", "likes" => $likes));
+        echo json_encode(array("status" => "success"));
     } else {
         echo json_encode(array("status" => "error", "message" => "Failed to insert data"));
     }
@@ -25,11 +21,7 @@ if ($count == 0) {
     $sql = "DELETE FROM likes WHERE user_ID = $userID AND article_ID = $articleid";
     $result = mysqli_query($connection, $sql);
     if ($result) {
-        $sql = "SELECT COUNT(*) AS 'likes' FROM likes WHERE article_ID = $articleid";
-        $result = mysqli_query($connection, $sql);
-        $row = mysqli_fetch_assoc($result);
-        $likes = $row['likes'];
-        echo json_encode(array("status" => "success", "likes" => $likes));
+        echo json_encode(array("status" => "success"));
     } else {
         echo json_encode(array("status" => "error", "message" => "Failed to delete data"));
     }

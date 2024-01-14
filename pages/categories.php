@@ -38,7 +38,7 @@
     </div>
     <script>
         function goToArticles(id,catName){
-            window.location = "articles.php?article_ID=" + id + "&catName=" + catName;
+            window.location = "articles.php?ID=" + id + "&catName=" + catName;
         } 
     </script>
 </body>

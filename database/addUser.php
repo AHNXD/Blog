@@ -7,6 +7,7 @@
         $password = sanitize($_GET['password']);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $state = 0;
+        
         if(isset($_GET['isAdmin'])) $state = 1;
         
         $query = "INSERT INTO `users` (`user_name`,`email`,`password`,`is_admin`) VALUES (?, ?, ?, ?)";
@@ -14,6 +15,7 @@
         mysqli_stmt_bind_param($stmt, "sssi", $user, $email, $hashedPassword, $state);
 
         $result = mysqli_stmt_execute($stmt);
+        
         $id;
         if($result){
             $sql = "SELECT * FROM users WHERE email = '$email'";

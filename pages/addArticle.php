@@ -9,7 +9,7 @@
 <body>
     <script src="../js/jquery.js" defer></script>
     <script defer>
-        function addArticle(id){
+        function addArticle(){
             var title = document.getElementById("title").value;
             var category = document.getElementById("catID").value;
             var description = document.getElementById("description").value;
@@ -21,6 +21,7 @@
                 type: "POST",
                 url: "../database/checkArticle.php",
                 data: {
+                    //parameters
                     title: title,
                     category: category,
                     description: description,
@@ -32,8 +33,7 @@
                 success: function(data) {
                     if (data.status == "success") 
                     {
-                        //alert("Article added successfully");
-                        location.reload();
+                        alert("Article added successfully");
                     }
                     else alert(data.message);
                 },

@@ -16,7 +16,7 @@
                     <button class="button-64" role="button" onclick="goToCategories()"><span class="text">Categories</span></button>
                     <button class="button-64" role="button" onclick="goToAddArticle()"><span class="text">Add Article</span></button>
                 </div>
-                <button class="button-85" role="button" onclick="signOut()">LogOut</button>
+                <button class="button-85" role="button" onclick="signOut()">Sign Out</button>
             </div>
         </div>
     </div>

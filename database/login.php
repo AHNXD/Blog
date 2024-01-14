@@ -26,8 +26,6 @@
             } else {
                 echo "Invalid email or password.";
             }
-
-
         } else {
             echo "Invalid email or password.";
         }

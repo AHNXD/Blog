@@ -24,7 +24,7 @@
                 data: {article_ID: id},
                 dataType: "json",
                 success: function(data) {
-                    if (data.status == "success") likesCount.innerHTML = data.likes;
+                    if (data.status == "success") location.reload();
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {
@@ -67,7 +67,7 @@
     </div>
         <?php
             include("../database/connection.php");
-            $id = $_GET['article_ID'];
+            $id = $_GET['ID'];
             $isAdmin = $_SESSION['user_isAdmin'];
             $sql = "SELECT * FROM article";
             if ($id != 0)
@@ -90,7 +90,7 @@
                     if ($data->num_rows > 0) $likes = $likesData->fetch_all(MYSQLI_ASSOC);
                     $likesCount = $likes[0]['likes'];
 
-                    echo " <div class='wrapper'><div class='form-container'><div class='form-inner'>";
+                    echo "<div class='wrapper'><div class='form-container'><div class='form-inner'>";
                     echo "<div class='article' >";
                     echo "<img class='title_pic' src=\"../photos/$imageURL\" alt=\"$title\">";
                     echo "<h1> $title </h1>";

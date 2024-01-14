@@ -42,7 +42,7 @@
                     {
                         //alert("Comment deleted successfully");
                         location.reload();
-                    } // update the number of likes
+                    }
                     else alert(data.message);
                 },
                 error: function(xhr, status, error) {
