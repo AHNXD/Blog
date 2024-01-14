@@ -40,7 +40,7 @@
                 success: function(data) {
                     if (data.status == "success") 
                     {
-                        alert("Comment deleted successfully");
+                        //alert("Comment deleted successfully");
                         location.reload();
                     } // update the number of likes
                     else alert(data.message);
@@ -87,11 +87,12 @@
             $commentID = $rows[$i]['ID'];
             $user_name = $rows[$i]['user'];
             $comment = $rows[$i]['comment'];
-            echo "<div class='comments' >";
-            echo "<h2 class='user_name'> $user_name </h2>";
-            echo "<h6 class ='comment'> $comment </h6>";
+            echo "<div class='comments'>";
+            echo "<div class='inner-comment' style='display:flex;justify-content:space-between;margin:32px;'><h2 class='user_name' style='color:#a445b2'> $user_name :</h2>";
+            echo "<h4 class ='comment'> $comment </h4>";
             if($_SESSION['user_isAdmin'] == 1) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
             else if($_SESSION["user_ID"] == $userID) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
+            echo "</div>";
             echo "<hr>";
             echo "</div>";
         }

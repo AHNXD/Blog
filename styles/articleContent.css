@@ -23,7 +23,7 @@ hr
     margin-top: 16px;
     height: 5px;
     border: none;
-    background-color: #a445b2;
+    background-color: gray;
 }
 ::selection{
     background: pink;

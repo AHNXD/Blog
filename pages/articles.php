@@ -41,7 +41,7 @@
                 success: function(data) {
                     if (data.status == "success") 
                     {
-                        alert("Article added successfully");
+                        //alert("Article deleted successfully");
                         location.reload();
                     }
                     else alert(data.message);
