@@ -7,7 +7,7 @@
     <title>Add Article</title>
 </head>
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="../js/jquery.js" defer></script>
     <script defer>
         function addArticle(id){
             var title = document.getElementById("title").value;

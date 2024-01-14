@@ -8,7 +8,7 @@
     <?php session_start(); ?>
 </head>
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="../js/jquery.js" defer></script>
     <script defer>
         function signOut() {
             window.location = "logInUp.php";
@@ -60,6 +60,7 @@
                 </div>
                 <button class='button-85' role='button' onclick='signOut()'>LogOut</button>
                 <button class='button-85' role='button' onclick='history.back()'>Go Back</button>
+                <hr>
                 <h1><?php echo $_GET['catName']; ?></h1>
             </div>
         </div>

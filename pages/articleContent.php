@@ -8,7 +8,7 @@
     <title>Content</title>
 </head>
 <body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="../js/jquery.js" defer></script>
     <script defer>
         function addComment(id){
             var comment = document.getElementById("comment").value;
@@ -90,7 +90,7 @@
 
             echo "<div class='inner-comment'>";
             echo "<h2 class='user_name'> $user_name :</h2>";
-            echo "<h4 class ='comment'> $comment </h4>";
+            echo "<div class='div-comment'><h4 class ='comment'> $comment </h4></div>";
             if($_SESSION['user_isAdmin'] == 1) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
             else if($_SESSION["user_ID"] == $userID) echo "<button class='btnDelete' onclick='deleteComment($commentID)'><img class='del-photo' src='../photos/trash1.svg' alt='trash'></button>";
             else echo "<div class='divEmp'></div>";
