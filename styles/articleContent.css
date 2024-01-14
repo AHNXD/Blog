@@ -65,6 +65,9 @@ hr
     width: 25px;
     height: inherit;
 }
+.user_name{
+    color: #a445b2;
+}
 .btnDelete{
     border-radius: 5px;
     background-color: red;
@@ -74,6 +77,11 @@ hr
 }
 .btnSend:hover{
     background: -webkit-linear-gradient(left, #a445b2, pink);
+}
+.inner-comment{
+    display:flex;
+    justify-content:space-between;
+    margin:32px;
 }
 .form-inner .field input{
     margin-right: 8px;
